@@ -1,0 +1,3 @@
+#!/bin/bash
+docker-compose build
+exec docker-compose run funker pytest
