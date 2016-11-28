@@ -1,10 +1,17 @@
 language: python
 python:
-- "2.7"
-- "3.3"
-- "3.4"
-- "3.5"
-- "pypy"
-- "pypy3"
+- '2.7'
+- '3.3'
+- '3.4'
+- '3.5'
+- pypy
+- pypy3
 install: pip install -U -r requirements.txt -r test-requirements.txt
 script: pytest
+deploy:
+  provider: pypi
+  user: funker-travis
+  on:
+    tags: true
+  password:
+    secure: baXM3O9g/KAsbNy0MV6RODswHGHv2JQVmADk7O78F6SwfPyKa2kJfEFyvkQYrgzwpnXIPsW2MzJjGYVYAvuYLNJA9xExndFoBASZ7JxU9I1IN7JKUP5VMEYj40+aTA1F4XLy2JpxaB6ouJRS8L2ZgVA/RymMdkkjdTfE1spoSDSD+6WaxAvjwPQip8HirC500aYXSSJLgRmuEvZE2jGI9cDlE+Mv0iOXsZLGHVyVIpgxIpNsEYR1a1Y7o7wtMYplSlPE/Jp4HJC5aJThBwDeEA6mv03jMKox+TF0jkygMHxmibNwd+XLhahSj12hHRrHhT+7OJxW3skFCvY+YwiPd0wicV1hMQ0AwN5qy2ME0ffWJynWacJ7uxlSAC1JLkTb2U+U/lRkc4G3KI/E7i7SioZhRWYXXlYOufFqMO6tDMyBCuBNh7B0vgbPemT04CNfc41bQ5VDgqwww6Wfdl3U4+2P5fGn7DQ65g9WTI0WknuG0dbQTAD7Ke+D3g3h1upFmzg0qVTcmlkB3jdg4BmaxhSNRJuKNYo3m24QGd6U26XT4O3PMLS0PjNZ75GgL6tc0aL675bqiwwk7WzgcW3h5Hv59A+aFDy+O291jea7ChbVmOLqu/IT5IYpEI3gJrPK+RkCPqfsMIglSxt554lyfWcNYF3tTnaN7nPtuNySmfk=
