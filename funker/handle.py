@@ -6,7 +6,7 @@ class HandleHandler(socketserver.StreamRequestHandler):
     def handle(self):
         kwargs = json.loads(str(self.rfile.read(), "utf-8"))
         return_value = self.server.func(**kwargs)
-        return_str = json.dumps(return_value) + '\n'
+        return_str = json.dumps(return_value)
         self.wfile.write(return_str.encode("utf-8"))
         self.wfile.close()
 
