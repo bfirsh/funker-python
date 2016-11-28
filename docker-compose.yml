@@ -2,3 +2,7 @@ version: "2"
 services:
   funker:
     build: .
+  funker-python2:
+    build:
+      context: .
+      dockerfile: Dockerfile.python2

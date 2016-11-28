@@ -11,5 +11,8 @@ setup(
     url='',
     packages=find_packages(),
     package_data={},
+    install_requires=[
+        'six',
+    ],
     include_package_data=True,
 )
