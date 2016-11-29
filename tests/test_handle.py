@@ -10,10 +10,16 @@ class HandleTest(unittest.TestCase):
         def f(x, y):
             return x + y
 
-        th = threading.Thread(target=funker.handle, args=[f])
-        th.daemon = True
-        th.start()
-
+        threading.Thread(target=funker.handle, args=[f]).start()
         time.sleep(0.1)
 
         assert funker.call("localhost", x=1, y=2) == 3
+
+    def test_handle_no_return_value(self):
+        def f(x):
+            return
+
+        threading.Thread(target=funker.handle, args=[f]).start()
+        time.sleep(0.1)
+
+        assert funker.call("localhost", x=1) is None
