@@ -23,3 +23,12 @@ class HandleTest(unittest.TestCase):
         time.sleep(0.1)
 
         assert funker.call("localhost", x=1) is None
+
+    def test_handle_no_arguments(self):
+        def f():
+            return "worked"
+
+        threading.Thread(target=funker.handle, args=[f]).start()
+        time.sleep(0.1)
+
+        assert funker.call("localhost") == "worked"
