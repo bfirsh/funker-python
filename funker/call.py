@@ -15,6 +15,8 @@ def call(name, **kwargs):
             if not data:
                 break
             buf += data
+        if not buf:
+            return None
         return json.loads(six.text_type(buf, "utf-8"))
     finally:
         sock.close()
